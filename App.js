@@ -1,20 +1,28 @@
+import React from 'react';
+ import { Text, View } from 'react-native';
+import Button from './src/components/buttons/Button';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import LandingScreen from './src/screens/LandingScreen';
+import Splash from './src/screens/Splash';
+import SignUp from './src/screens/SignUp';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SignIn } from './src/screens/SignIn';
 
+const Stack = createNativeStackNavigator();
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+  <NavigationContainer>
       <StatusBar style="auto" />
-    </View>
+     <Stack.Navigator
+        initialRouteName="Splash"
+        screenOptions={{ headerShown: false }}
+      >
+        <Stack.Screen name="Splash" component={Splash} />
+        <Stack.Screen name="Home" component={LandingScreen} />
+        <Stack.Screen name="Signup" component={SignUp} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
