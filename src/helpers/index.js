@@ -1,0 +1,1 @@
+export const baseURL = 'https://attendance-backend-0482ce4fc96b.herokuapp.com/'

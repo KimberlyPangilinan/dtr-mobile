@@ -51,9 +51,10 @@ export default function SignUp({ navigation }) {
           <Text>{formContent[formStep].subtitle}</Text>
         </View>
         <ScrollView >
-          {formContent[formStep].input.map((input) => {
+          {formContent[formStep].input.map((input,key) => {
             return (
               <Input
+                key={key}
                 label={input.label}
                 onChangeText={input.onchange}
                 text={input.value}
